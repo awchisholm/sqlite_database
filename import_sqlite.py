@@ -54,8 +54,10 @@ con.close()
 # This finds what a Calzone is made of
 query = '''
 select pizza.pizza_name, ingredient.ingredient_name from pizza 
-left join recipe on pizza.pizza_id = recipe.pizza_id 
-left join ingredient on recipe.ingredient_id = ingredient.ingredient_id
+left join recipe 
+  on pizza.pizza_id = recipe.pizza_id 
+left join ingredient 
+  on recipe.ingredient_id = ingredient.ingredient_id
 where pizza.pizza_name = 'Calzone' 
 '''
 con = sqlite3.connect(database)
